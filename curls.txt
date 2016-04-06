@@ -1,6 +1,17 @@
-#curls to get API info and download
-curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis"
-curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis/backend-analytics"
-curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis/backend-analytics/revisions"
-curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis/backend-analytics/revisions/2"
-curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis/backend-analytics/revisions/2?format=bundle" -o backend-analytics.zip
+#curls to get manage APIs
+
+# Create
+curl -X POST -u $UNPW "$MGMTSVR/v1/o/$ORG/apis" -d '{ "name": "apitest" }' -H 'Content-Type:application/json'
+
+# Download
+curl -X GET -u $UNPW "$MGMTSVR/v1/o/$ORG/apis"
+curl -X GET -u $UNPW "$MGMTSVR/v1/o/$ORG/apis/apitest"
+curl -X GET -u $UNPW "$MGMTSVR/v1/o/$ORG/apis/apitest/revisions"
+curl -X GET -u $UNPW "$MGMTSVR/v1/o/$ORG/apis/apitest/revisions/1"
+curl -X GET -u $UNPW "$MGMTSVR/v1/o/$ORG/apis/apitest/revisions/1?format=bundle" -o apitest.zip
+
+# Import into new revision
+curl -v -X POST -u $UNPW $MGMTSVR/v1/o/$ORG/apis?name=apitest&validate=true&action=import -F file=@apitest.zip -H Content-Type:multipart/form-data
+
+# Update
+curl -v -X POST -u $UNPW $MGMTSVR/v1/o/$ORG/apis/apitest/revisions/2?validate=true -F file=@apitest.zip -H Content-Type:multipart/form-data
