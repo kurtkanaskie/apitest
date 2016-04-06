@@ -1,0 +1,6 @@
+#curls to get API info and download
+curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis"
+curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis/backend-analytics"
+curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis/backend-analytics/revisions"
+curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis/backend-analytics/revisions/2"
+curl -X GET "https://api.enterprise.apigee.com/v1/o/kurtkanaskie/apis/backend-analytics/revisions/2?format=bundle" -o backend-analytics.zip
