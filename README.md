@@ -4,14 +4,12 @@
 ###Apigeetool
 #####Download and install Apigeetool a Node.js module you can install with npm:
 $ npm install –g apigeetool
-
+```
 MGMTSVR = https://api.enterprise.apigee.com (this is the default, override with –L $MGMTSVR)
-
 ORG = your-org-name
-
 UN = username@email.com:password
-
 PW = username@email.com:password
+```
 
 #####Create (new or revision) do not Deploy
 * apigeetool deployproxy -u $UN -p $PW -o $ORG -n apitest -e test -i
@@ -25,11 +23,11 @@ Create (new or revision) and Deploy
 * apigeetool listdeployments -u $UN -p $PW -o $ORG –n apitest
 
 ###Curl commands to Management API
+```
 MGMTSVR = https://api.enterprise.apigee.com
-
 UNPW = username@email.com:password
-
 ORG = your-org-name
+```
 
 #####Create
 * curl -X POST -u $UNPW "$MGMTSVR/v1/o/$ORG/apis" -d '{ "name": "apitest" }' -H 'Content-Type:application/json’
