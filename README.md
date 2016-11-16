@@ -1,4 +1,4 @@
-# Example apitest repo
+# Example apitest repo.
 
 ###Apigeetool
 #####Download and install Apigeetool a Node.js module you can install with npm:
