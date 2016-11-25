@@ -4,16 +4,17 @@
 #####Download and install Apigeetool a Node.js module you can install with npm:
 $ npm install –g apigeetool
 ```
-MGMTSVR = https://api.enterprise.apigee.com (this is the default, override with –L $MGMTSVR)
-ORG = your-org-name
-UN = username@email.com:password
-PW = username@email.com:password
+MGMTSVR=https://api.enterprise.apigee.com (this is the default, override with –L $MGMTSVR)
+ORG=your-org-name
+UN=username@email.com:password
+PW=username@email.com:password
 ```
 
 #####Create (new or revision) do not Deploy
-* apigeetool deployproxy -u $UN -p $PW -o $ORG -n apitest -e test -i
+In current directory
+* apigeetool deployproxy -u $UN -p $PW -o $ORG -n apitest -e test -i -d .
 Create (new or revision) and Deploy
-* apigeetool deployproxy -u $UN -p $PW -o $ORG -n apitest -e test
+* apigeetool deployproxy -u $UN -p $PW -o $ORG -n apitest -e test -d .
 #####Downlowd
 * apigeetool fetchproxy -u $UN -p $PW -o $ORG -n apitest -r 2
 #####List Deployments in environment
