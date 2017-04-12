@@ -45,6 +45,5 @@ ORG = your-org-name
 #####Update existing revision
 * curl -v -X POST -u $UNPW $MGMTSVR/v1/o/$ORG/apis/apitest/revisions/2?validate=true -F file=@apitest.zip -H Content-Type:multipart/form-data
 
-Docs: http://docs.apigee.com/api/apis-0
-
+Docs: http://docs.apigee.com
 
